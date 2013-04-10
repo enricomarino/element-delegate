@@ -1,0 +1,11 @@
+{
+  "name": "element-delegate",
+  "repo": "enricomarino/element-delegate",
+  "description": "Element event delegate component",
+  "version": "0.0.1",
+  "keywords": ["DOM", "Element", "event", "delegate"],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "scripts": ["index.js"]
+}
