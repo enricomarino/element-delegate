@@ -4,7 +4,9 @@
   "description": "Element event delegate component",
   "version": "0.0.1",
   "keywords": ["DOM", "Element", "event", "delegate"],
-  "dependencies": {},
+  "dependencies": {
+    "matches-selector": "*"
+  },
   "development": {},
   "license": "MIT",
   "scripts": ["index.js"]
