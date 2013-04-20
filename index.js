@@ -7,17 +7,25 @@
  */
 
 /**
- * Expose `Delegate`.
+ * Dependencies.
  */
 
+var matches = require('matches-selector');
+
 /**
- * Delegate
+ * Expose `Element`.
+ */
+
+module.exports = Element;
+
+/**
+ * Element
  *
  * @param {Element} el
  * @api public
  */
 
-function Delegate (el) {
+function Element (el) {
   this.el = el;
 }
 
@@ -25,15 +33,19 @@ function Delegate (el) {
  * delegate
  * Delegate event.
  *
- * @param {String} event event name
+ * @param {String} type event type
  * @param {String} selector selector
  * @param {Function} callback callback
- * @return {Event} this for chaining
+ * @param {Boolean} capture capture
+ * @return {Element} this for chaining
  * @api public
  */
 
-Event.prototype.delegate = function (event, selector, callback) {
-  //TODO
+Element.prototype.delegate = function (type, selector, callback, capture) {
+  var el = this.el;
+  el.addEventListener(event, function (event) {
+    if (matches(event.target, selector)) callback.call(el, event);
+  }, capture);
   return this;
 };
 
@@ -43,11 +55,11 @@ Event.prototype.delegate = function (event, selector, callback) {
  *
  * @param {String} event event name
  * @param {Function} callback callback
- * @return {Event} this for chaining
+ * @return {Element} this for chaining
  * @api public
  */
 
-Delegate.prototype.undelegate = function (event, callback) {
+Element.prototype.undelegate = function (event, callback) {
   //TODO
   return this;
 };
