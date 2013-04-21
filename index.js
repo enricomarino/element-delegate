@@ -37,16 +37,19 @@ function Element (el) {
  * @param {String} selector selector
  * @param {Function} callback callback
  * @param {Boolean} capture capture
- * @return {Element} this for chaining
+ * @return {Function} function that can be undelegated
  * @api public
  */
 
 Element.prototype.delegate = function (type, selector, callback, capture) {
   var el = this.el;
-  el.addEventListener(event, function (event) {
-    if (matches(event.target, selector)) callback.call(el, event);
-  }, capture);
-  return this;
+  var fn = function (event) {
+    if (matches(event.target, selector)) {
+      callback.call(el, event);
+    }
+  }
+  el.addEventListener(event, fn, capture);
+  return fn;
 };
 
 /**
