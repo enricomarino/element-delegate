@@ -48,7 +48,7 @@ Element.prototype.delegate = function (type, selector, callback, capture) {
       callback.call(el, event);
     }
   };
-  el.addEventListener(event, fn, capture);
+  el.addEventListener(event, fn, capture || false);
   return fn;
 };
 
@@ -65,6 +65,6 @@ Element.prototype.delegate = function (type, selector, callback, capture) {
 
 Element.prototype.undelegate = function (event, callback, capture) {
   var el = this.el;
-  el.removeEventListener(event, callback, capture)
+  el.removeEventListener(event, callback, capture || false);
   return this;
 };
