@@ -47,7 +47,7 @@ Element.prototype.delegate = function (type, selector, callback, capture) {
     if (matches(event.target, selector)) {
       callback.call(el, event);
     }
-  }
+  };
   el.addEventListener(event, fn, capture);
   return fn;
 };
@@ -58,11 +58,13 @@ Element.prototype.delegate = function (type, selector, callback, capture) {
  *
  * @param {String} event event name
  * @param {Function} callback callback
+ * @param {Boolean} capture capture
  * @return {Element} this for chaining
  * @api public
  */
 
-Element.prototype.undelegate = function (event, callback) {
-  //TODO
+Element.prototype.undelegate = function (event, callback, capture) {
+  var el = this.el;
+  el.removeEventListener(event, callback, capture)
   return this;
 };
