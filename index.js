@@ -13,23 +13,6 @@
 var matches = require('matches-selector');
 
 /**
- * Expose `Element`.
- */
-
-module.exports = Element;
-
-/**
- * Element
- *
- * @param {Element} el
- * @api public
- */
-
-function Element (el) {
-  this.el = el;
-}
-
-/**
  * delegate
  * Delegate event.
  *
@@ -41,7 +24,7 @@ function Element (el) {
  * @api public
  */
 
-Element.prototype.delegate = function (type, selector, callback, capture) {
+exports.delegate = function (type, selector, callback, capture) {
   var el = this.el;
   var fn = function (event) {
     if (matches(event.target, selector)) {
@@ -63,7 +46,7 @@ Element.prototype.delegate = function (type, selector, callback, capture) {
  * @api public
  */
 
-Element.prototype.undelegate = function (event, callback, capture) {
+exports.undelegate = function (event, callback, capture) {
   var el = this.el;
   el.removeEventListener(event, callback, capture || false);
   return this;
