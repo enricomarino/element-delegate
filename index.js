@@ -65,7 +65,7 @@ function delegate (element) {
    * @api public
    */
   
-  exports.undelegate = function (event, callback, capture) {
+  element.prototype.undelegate = function (event, callback, capture) {
     this.el.removeEventListener(event, callback, capture || false);
     return this;
   };
