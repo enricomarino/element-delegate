@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "keywords": ["DOM", "Element", "event", "delegate"],
   "dependencies": {
-    "matches-selector": "*"
+    "enricomarino/element-match": "*"
   },
   "development": {},
   "license": "MIT",
