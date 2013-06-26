@@ -6,6 +6,12 @@ Element event delegate component
 
     $ component install enricomarino/element-delegate
 
+## API
+
+#### Element#delegate(event:String, selector:String, callback:Function, [capture:Boolean]):Function
+
+#### Element#undelegate(event:String, callback:Function, [capture:Boolean]):Element
+
 ## License
 
 (The MIT License)
