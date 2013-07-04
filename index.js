@@ -1,28 +1,22 @@
 /**
  * element-delegate
- * event delegate plugin for element
+ * event delegate, plugin for element
  * 
  * @copyright 2013 Enrico Marino
  * @license MIT
  */
 
 /**
- * Dependencies.
+ * Componentn dependencies.
  */
 
 var match = require('element-match');
 
 /**
- * Expose `delegate`
+ * Expose component.
  */
 
-module.exports = delegate;
-
-/**
- * delegate
- */
-
-function delegate (element) {
+module.exports = function (element) {
 
   /**
    * element dependencies.
@@ -38,7 +32,7 @@ function delegate (element) {
    * @param {String} selector selector
    * @param {Function} callback callback
    * @param {Boolean} capture capture
-   * @return {Function} function that can be undelegated
+   * @return {Element} this for chaining
    * @api public
    */
   
@@ -50,8 +44,9 @@ function delegate (element) {
         callback.call(el, event);
       }
     };
+    callback._delegate = fn;
     el.addEventListener(event, fn, capture || false);
-    return fn;
+    return this;
   };
   
   /**
@@ -66,10 +61,11 @@ function delegate (element) {
    */
   
   element.prototype.undelegate = function (event, callback, capture) {
-    this.el.removeEventListener(event, callback, capture || false);
+    var el = this.el;
+    var fn = callback._delegate;
+    el.removeEventListener(event, fn, capture || false);
     return this;
   };
  
-
   return element;
-}
+};
