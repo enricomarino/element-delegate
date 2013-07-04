@@ -1,6 +1,6 @@
 #element-delegate
 
-Element event delegate component
+event delegate, plugin for element
 
 ## Installation
 
@@ -8,9 +8,9 @@ Element event delegate component
 
 ## API
 
-#### Element#delegate(event:String, selector:String, callback:Function, [capture:Boolean]):Function
+### Element#delegate(event:String, selector:String, callback:Function, [capture:Boolean]):Element
 
-#### Element#undelegate(event:String, callback:Function, [capture:Boolean]):Element
+### Element#undelegate(event:String, callback:Function, [capture:Boolean]):Element
 
 ## License
 
