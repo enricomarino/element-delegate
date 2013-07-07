@@ -1,6 +1,6 @@
 #element-delegate
 
-event delegate, plugin for element
+event delegate, plugin for [element](https://github.com/enricomarino/element)
 
 ## Installation
 
